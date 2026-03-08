@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Մարտի 8 - Շնորհավոր Տոնդ, Սիրելի՛ Ուսուցիչ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-pink: #ff85a2;
+            --dark-pink: #f72585;
+            --soft-gold: #f9dcc4;
+            --white: #ffffff;
+            --text-color: #4a4a4a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #fff5f8;
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+
+        /* --- Header --- */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--dark-pink);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li { margin-left: 20px; }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover { color: var(--dark-pink); }
+
+        /* --- Hero --- */
+        .hero {
+            height: 80vh;
+            background: linear-gradient(rgba(255,255,255,0.4), rgba(255,255,255,0.4)), 
+                        url('https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&q=80&w=2070') no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            margin-top: 60px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            color: var(--dark-pink);
+            margin-bottom: 20px;
+            animation: fadeInDown 1.5s ease;
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 4vw, 1.5rem);
+            max-width: 800px;
+            line-height: 1.6;
+            animation: fadeInUp 1.5s ease;
+        }
+
+        /* --- Container --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            color: var(--dark-pink);
+        }
+
+        /* --- Cards Grid --- */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            transition: all 0.4s ease;
+            border-bottom: 5px solid transparent;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(247, 37, 133, 0.15);
+            border-bottom: 5px solid var(--dark-pink);
+        }
+
+        .card i {
+            font-size: 2.5rem;
+            color: var(--primary-pink);
+            margin-bottom: 10px;
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            color: #222;
+            border-bottom: 1px dashed var(--primary-pink);
+            padding-bottom: 10px;
+        }
+
+        .card p {
+            line-height: 1.8;
+            font-size: 1rem;
+            text-align: justify;
+        }
+
+        .special-card {
+            grid-column: 1 / -1;
+            background: linear-gradient(135deg, #fff 0%, #fff0f5 100%);
+            text-align: center;
+            padding: 60px;
+        }
+
+        /* --- Animations --- */
+        .flower-animation {
+            position: fixed;
+            top: -10%;
+            pointer-events: none;
+            z-index: 999;
+            animation: fall linear forwards;
+        }
+
+        @keyframes fall { to { transform: translateY(110vh) rotate(360deg); } }
+        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-50px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(50px); } to { opacity: 1; transform: translateY(0); } }
+
+        footer { background: #222; color: white; padding: 40px; text-align: center; margin-top: 50px; }
+
+        @media (max-width: 768px) {
+            .grid { grid-template-columns: 1fr; }
+            header { padding: 1rem; }
+            nav { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">Մարտի 8 🌷</div>
+        <nav>
+            <ul>
+                <li><a href="#teachers">Ուսուցիչներ</a></li>
+                <li><a href="#administration">Տնօրինություն</a></li>
+                <li><a href="#special">Շնորհակալություն</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Շնորհավոր Մարտի 8</h1>
+        <p>Այս գեղեցիկ գարնանային տոնի առթիվ մեր երախտագիտությունն ենք հայտնում բոլոր այն կանանց, ովքեր կրթում և լուսավորում են մեր ճանապարհը։</p>
+    </section>
+
+    <div class="container" id="teachers">
+        <h2 class="section-title">Մեր Սիրելի Ուսուցիչներին</h2>
+        
+        <div class="grid">
+            <div class="card">
+                <i class="fas fa-square-root-variable"></i>
+                <h3>Մաթեմատիկայի ուսուցչուհուն</h3>
+                <p>Սիրելի՛ մաթեմատիկայի ուսուցչուհի, Շնորհավորում ենք Ձեզ Մարտի 8-ի կապակցությամբ։ Թող Ձեր կյանքը լինի ճիշտ ու ներդաշնակ, ինչպես գեղեցիկ լուծված հավասարում։ Թող հաջողությունները բազմապատկվեն, դժվարությունները բաժանվեն, իսկ ուրախությունը միշտ բարձրանա աստիճանի պես։ Դուք մեզ սովորեցնում եք ոչ միայն թվեր ու բանաձևեր, այլ նաև տրամաբանել, չհանձնվել և գտնել ճիշտ լուծումներ կյանքում։ Թող Ձեր օրերը լցված լինեն ժպիտներով, ջերմությամբ և սիրով։</p>
+            </div>
+
+            <div class="card">
+                <i class="fas fa-pen-fancy"></i>
+                <h3>Հայոց լեզվի ուսուցչուհուն</h3>
+                <p>Սիրելի՛ հայոց լեզվի ուսուցչուհի, Շնորհավորում ենք Ձեզ այս գեղեցիկ գարնանային տոնի առթիվ։ Դուք մեզ սովորեցնում եք սիրել մեր մայրենի լեզուն, գնահատել յուրաքանչյուր բառի ուժն ու գեղեցկությունը։ Թող Ձեր կյանքը լինի հարուստ ու գունեղ, ինչպես մեր լեզուն, լի բարի ու ջերմ խոսքերով։ Թող Ձեր սիրտը միշտ լցված լինի հպարտությամբ ու ուրախությամբ Ձեր կատարած մեծ գործի համար։</p>
+            </div>
+
+            <div class="card">
+                <i class="fas fa-language"></i>
+                <h3>Ռուսաց լեզվի ուսուցչուհուն</h3>
+                <p>Սիրելի՛ ռուսաց լեզվի ուսուցչուհի, Շնորհավորում ենք Ձեզ Մարտի 8-ի կապակցությամբ։ Դուք բացում եք մեր առջև նոր աշխարհներ և օգնում եք հասկանալ այլ մշակույթներ ու գրականություն։ Թող Ձեր կյանքը լինի հետաքրքիր ու լուսավոր, ինչպես նոր սովորած գեղեցիկ արտահայտությունը։ Թող միշտ շրջապատված լինեք շնորհակալ ու սիրող աշակերտներով։</p>
+            </div>
+
+            <div class="card">
+                <i class="fas fa-book-journal-whills"></i>
+                <h3>Գրականության ուսուցչուհուն</h3>
+                <p>Սիրելի՛ գրականության ուսուցչուհի, Շնորհավորում ենք Ձեզ կանանց միջազգային օրվա առթիվ։ Դուք մեզ սովորեցնում եք հասկանալ հերոսների զգացմունքները, գնահատել արվեստը և տեսնել կյանքի խորությունը։ Թող Ձեր կյանքը լինի գեղեցիկ պատմության նման՝ լի ուրախ էջերով ու երջանիկ ավարտներով։ Թող Ձեր սիրտը միշտ լցված լինի ոգեշնչմամբ ու սիրով։</p>
+            </div>
+
+            <div class="card">
+                <i class="fas fa-globe-americas"></i>
+                <h3>English Teacher</h3>
+                <p>Dear English teacher, Happy Women’s Day! 🌷 You help us open the doors to the world and communicate with confidence. Because of you, we are not afraid to speak, to try, and to dream bigger. May your life be full of happiness, bright moments, and success. Thank you for your patience, kindness, and inspiration. We wish you health, love, and endless smiles!</p>
+            </div>
+
+            <div class="card">
+                <i class="fas fa-monument"></i>
+                <h3>Պատմության ուսուցչուհուն</h3>
+                <p>Սիրելի՛ պատմության ուսուցչուհի, Շնորհավորում ենք Ձեզ Մարտի 8-ի կապակցությամբ։ Դուք մեզ սովորեցնում եք գնահատել անցյալը և հասկանալ ներկան։ Թող Ձեր կյանքը լինի հարուստ ու բովանդակալից, ինչպես պատմության ամենահետաքրքիր էջերը։ Թող Ձեր աշխատանքի շնորհիվ սերունդները շարունակեն հպարտանալ Ձեզով։</p>
+            </div>
+
+            <div class="card">
+                <i class="fas fa-microscope"></i>
+                <h3>Կենսաբանության ուսուցչուհուն</h3>
+                <p>Սիրելի՛ կենսաբանության ուսուցչուհի, Շնորհավորում ենք Ձեզ այս գեղեցիկ գարնանային տոնի առթիվ։ Դուք մեզ բացատրում եք կյանքի գաղտնիքները և բնության հրաշքները։ Թող Ձեր կյանքը ծաղկի ինչպես գարնան առաջին ծաղիկները, և Ձեր օրերը լինեն լույսով ու ուրախությամբ լի։</p>
+            </div>
+
+            <div class="card">
+                <i class="fas fa-vial"></i>
+                <h3>Քիմիայի ուսուցչուհուն</h3>
+                <p>Սիրելի՛ քիմիայի ուսուցչուհի, Շնորհավորում ենք Ձեզ Մարտի 8-ի առթիվ։ Դուք մեզ սովորեցնում եք հասկանալ նյութերի գաղտնիքները և տեսնել հրաշքը ամենափոքր մասնիկների մեջ։ Թող Ձեր կյանքում միշտ լինեն միայն դրական «ռեակցիաներ», ջերմ «էներգիա» և պայծառ արդյունքներ։ Թող Ձեր օրերը լինեն լուսավոր, ինչպես հաջողված փորձը։</p>
+            </div>
+
+            <div class="card">
+                <i class="fas fa-bolt"></i>
+                <h3>Ֆիզիկայի ուսուցչուհուն</h3>
+                <p>Սիրելի՛ ֆիզիկայի ուսուցչուհի, Շնորհավորում ենք Ձեզ այս գեղեցիկ գարնանային տոնի կապակցությամբ։ Դուք մեզ սովորեցնում եք հասկանալ աշխարհի օրենքները և հավատալ, որ ամեն շարժում ունի իր ուժը։ Թող Ձեր կյանքում միշտ գերակշռի ուրախության ուժը, հաջողության արագությունը լինի մեծ, իսկ դժվարությունները մնան զրոյական։</p>
+            </div>
+
+            <div class="card">
+                <i class="fas fa-map-location-dot"></i>
+                <h3>Աշխարհագրության ուսուցչուհուն</h3>
+                <p>Սիրելի՛ աշխարհագրության ուսուցչուհի, Շնորհավորում ենք Ձեզ Մարտի 8-ի առթիվ։ Դուք մեզ տանում եք աշխարհով մեկ՝ բացահայտելով նոր երկրներ, մշակույթներ և հետաքրքիր վայրեր։ Թող Ձեր կյանքը լինի ճանապարհորդության նման՝ լի նոր բացահայտումներով ու գեղեցիկ պահերով։ Թող Ձեր սիրտը միշտ լցված լինի խաղաղությամբ։</p>
+            </div>
+
+            <div class="card">
+                <i class="fas fa-running"></i>
+                <h3>Ֆիզկուլտուրայի ուսուցչուհուն</h3>
+                <p>Սիրելի՛ ֆիզկուլտուրայի ուսուցչուհի, Շնորհավորում ենք Ձեզ կանանց միջազգային օրվա առթիվ։ Դուք մեզ սովորեցնում եք լինել ուժեղ, առողջ և նպատակասլաց։ Թող Ձեր կյանքում միշտ լինի հաղթանակի զգացում, բարձր տրամադրություն և անսահման էներգիա։ Թող Ձեր օրերը լինեն ակտիվ, ուրախ ու հաջողություններով լի։</p>
+            </div>
+
+            <div class="card">
+                <i class="fas fa-palette"></i>
+                <h3>Կերպարվեստի ուսուցչուհուն</h3>
+                <p>Սիրելի՛ կերպարվեստի ուսուցչուհի, Շնորհավորում ենք Ձեզ այս գեղեցիկ տոնի առթիվ։ Դուք մեզ սովորեցնում եք տեսնել գույները նույնիսկ ամենասովորական օրերում։ Թող Ձեր կյանքը լինի վառ ու գունեղ, ինչպես գեղեցիկ կտավը։ Թող յուրաքանչյուր օր Ձեզ համար լինի ստեղծագործությամբ ու ոգեշնչմամբ լի։</p>
+            </div>
+
+            <div class="card">
+                <i class="fas fa-music"></i>
+                <h3>Երաժշտության ուսուցչուհուն</h3>
+                <p>Սիրելի՛ երաժշտության ուսուցչուհի, Շնորհավորում ենք Ձեզ Մարտի 8-ի կապակցությամբ։ Դուք մեր օրերը լցնում եք մեղեդիներով ու գեղեցիկ հնչյուններով։ Թող Ձեր կյանքը լինի ներդաշնակ ու ուրախ, ինչպես ամենագեղեցիկ երգը։ Թող Ձեր սիրտը միշտ երգի երջանկությունից։</p>
+            </div>
+
+            <div class="card">
+                <i class="fas fa-tools"></i>
+                <h3>Տեխնոլոգիայի ուսուցչուհուն</h3>
+                <p>Սիրելի՛ տեխնոլոգիայի ուսուցչուհի, Շնորհավորում ենք Ձեզ գարնանային այս հրաշալի տոնի առթիվ։ Դուք մեզ սովորեցնում եք ստեղծել, կառուցել և իրականություն դարձնել մեր գաղափարները։ Թող Ձեր կյանքը լինի ստեղծագործ ու հաջողություններով լի։ Թող յուրաքանչյուր սկսած գործ ունենա գեղեցիկ ու արժանի ավարտ։</p>
+            </div>
+
+            <div class="card">
+                <i class="fas fa-user-clock"></i>
+                <h3>Ուսուցչի փոխարինողներին</h3>
+                <p>Սիրելի՛ ուսուցչի փոխարինողներ, Շնորհավորում ենք Ձեզ Մարտի 8-ի առթիվ։ Թեև երբեմն դասարան եք մտնում կարճ ժամանակով, Ձեր ներկայությունը շատ կարևոր է մեզ համար։ Ձեր համբերությունը, պատասխանատվությունն ու բարությունը մեծ աջակցություն են մեզ համար։ Թող գարունը Ձեր կյանք բերի նոր հնարավորություններ ու լույս։</p>
+            </div>
+
+            <div class="card">
+                <i class="fas fa-star"></i>
+                <h3>Դասվարների համար</h3>
+                <p>Սիրելի՛ դասվարներ, Շնորհավորում ենք Ձեզ Մարտի 8-ի կապակցությամբ։ Դուք մեր առաջին ուսուցիչներն եք, ովքեր մեզ սովորեցնում են լինել բարի, հարգալից և համբերատար։ Ձեր շնորհիվ դպրոցը դառնում է ջերմ ու ապահով վայր։ Մաղթում ենք Ձեզ առողջություն, երջանկություն և անսահման ժպիտներ։</p>
+            </div>
+
+            <div class="card">
+                <i class="fas fa-heart"></i>
+                <h3>Դասղեկների համար</h3>
+                <p>Սիրելի՛ դասղեկներ, Շնորհավորում ենք Ձեզ այս գարնանային գեղեցիկ տոնի առթիվ։ Դուք մեզ համար պարզապես ուսուցիչ չեք, այլ նաև աջակցող, խորհուրդ տվող և հոգատար մեծ մարդ։ Թող Ձեր կյանքում միշտ լինի ներդաշնակություն և խաղաղություն։ Շնորհակալ ենք Ձեր ջերմ վերաբերմունքի համար։</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="administration">
+        <h2 class="section-title">Տնօրինություն</h2>
+        <div class="grid">
+            <div class="card">
+                <i class="fas fa-user-tie"></i>
+                <h3>Հարգելի՛ ընկեր Հովհաննիսյան</h3>
+                <p>Շնորհավորում ենք Ձեզ Մարտի 8-ի առթիվ։ Ձեր իմաստուն ղեկավարությամբ մեր դպրոցը դառնում է կազմակերպված, ջերմ և նպատակասլաց կրթօջախ։ Դուք ոչ միայն ղեկավարում եք, այլ նաև ոգեշնչում ու աջակցում յուրաքանչյուրին։ Թող Ձեր կյանքում միշտ լինեն հաջողված որոշումներ և մեծ ձեռքբերումներ։</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-users-gear"></i>
+                <h3>Հարգելի՛ փոխտնօրեն</h3>
+                <p>Շնորհավորում ենք Ձեզ այս գեղեցիկ գարնանային տոնի կապակցությամբ։ Ձեր պատասխանատու ու նվիրված աշխատանքի շնորհիվ դպրոցական կյանքը դառնում է կազմակերպված և արդյունավետ։ Թող գարունը Ձեզ բերի նոր գաղափարներ, ուժ և անսպառ էներգիա։</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="special">
+        <div class="card special-card">
+            <i class="fas fa-gift" style="color: #f72585; font-size: 3rem;"></i>
+            <h2>Շնորհակալություն Ձեզ</h2>
+            <p style="margin-top: 20px;">
+                Սիրելի՛ ուսուցիչներ, դուք կերտում եք ապագան։ Այս կայքը փոքրիկ երախտագիտության նշան է ձեր անսահման համբերության և նվիրումի համար։ Թող գարունը միշտ լինի ձեր սրտերում։
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 | Պատրաստված է սիրով աշակերտների կողմից</p>
+    </footer>
+
+    <script>
+        function createFlower() {
+            const flowers = ['🌸', '🌷', '🌹', '🌺', '🌼', '🌻'];
+            const flower = document.createElement('div');
+            flower.classList.add('flower-animation');
+            flower.innerHTML = flowers[Math.floor(Math.random() * flowers.length)];
+            flower.style.left = Math.random() * 100 + 'vw';
+            flower.style.animationDuration = Math.random() * 3 + 2 + 's';
+            flower.style.fontSize = Math.random() * 20 + 10 + 'px';
+            flower.style.opacity = Math.random();
+            document.body.appendChild(flower);
+            setTimeout(() => flower.remove(), 5000);
+        }
+        setInterval(createFlower, 300);
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'all 0.6s ease-out';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
